@@ -26,28 +26,27 @@ L2 = sp.csr_matrix(L2)
 
 
 #Venstre randbetingelser
-L2[0, 0] = -1/h
+L2[0, 0] =  1/h
 L2[0, 1] = -1/h
 
 #Høgre randbetingelser
 L2[-1, -1] = -1/h
-L2[-1, -2] = -1/h
+L2[-1, -2] =  1/h
 
-omega = 1
+omega = 0
 
 B = L2 + (omega**2) * sp.eye(N)
 
 G = np.cos(np.pi * x)
-# om vi hadde en funksjon f(x) på høyre side av ligningen ville vi satt G = f(x) istedet
 
 # setter inn randbetingelsen i vektoren G
-G[0]  +=  PaV
-G[-1] -=  PbV
+G[0]  = - PaV
+G[-1] = - PbV
 
 B_tett = B.toarray()
 
 # løser systemet
-V = lin.spsolve(B_tett, G)
+V = lin.spsolve(B, G)
 
 plt.plot(x, V)
 plt.xlabel('x')
