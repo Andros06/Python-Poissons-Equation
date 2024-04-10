@@ -34,7 +34,6 @@ L2[-1, -1] = 1/h
 L2[-1, -2] = -1/h
 
 omega = 0
-omega = 0
 
 B = L2 + (omega**2) * sp.eye(N)
 
@@ -44,13 +43,9 @@ G = np.cos(np.pi * x)
 G[0]  =  PaV
 G[-1] =  PbV
 
-#B_tett = B.toarray()
-
 # Løyser likninga
 V, istop, itn, r1norm = lin.lsqr(L2, G)[:4]
 
-
-print(V)
 plt.plot(x, V)
 plt.xlabel('x')
 plt.ylabel('u(x)')
