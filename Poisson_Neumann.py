@@ -34,11 +34,11 @@ L2[-1, -1] = 1/h
 L2[-1, -2] = -1/h
 
 omega = 0
+omega = 0
 
 B = L2 + (omega**2) * sp.eye(N)
 
 G = np.cos(np.pi * x)
-# om vi hadde en funksjon f(x) på høyre side av ligningen ville vi satt G = f(x) istedet
 
 # setter inn randbetingelsen i vektoren G
 G[0]  =  PaV
