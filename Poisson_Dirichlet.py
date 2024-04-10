@@ -3,23 +3,25 @@ import scipy.sparse.linalg as lin
 import numpy as np
 import matplotlib.pyplot as plt
 
-#antall punkter
+# antall punkter
 m = 5
 N = m + 2
-#start og slutt punkt
+
+#s tart og slutt punkt
 Pa = -1 
 Pb = 1
 
+# Setter verdier i start og slutt punkt
 PaV = 0
 PbV = 2
 
+# Danner X
 x = np.linspace(Pa, Pb, N)
 
-# avstand mellom punktene
+# Avstand mellom punktene
 h = x[1] - x[0]
 
 L = (1/h**2) * sp.diags([1, -2, 1], [-1, 0, 1], shape=(m,m))
-
 
 A = L.toarray()
 
@@ -40,6 +42,6 @@ print(u_full)
 plt.plot(x, u_full)
 plt.xlabel("x")
 plt.ylabel("u(x)")
-plt.title("Solution of the Poisson Equation")
+plt.title("Dirichlet Løysning")
 plt.grid(True)
 plt.show()
